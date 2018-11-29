@@ -1,0 +1,120 @@
+1. It has been shown by Felix Reimold (you cite the paper) that the HFSHD can be modelled with SOLPS if taking into account (i) an increased transport into the far SOL and (ii) the drifts in the divertor region.
+When you discuss the HFSHD you completely neglect point (ii) from Felix' conclusions.
+
+2. On p3 you write:
+
+    Observations such as confinement degradation with gas fuelling, confinement
+    enhancement with nitrogen seeding, the role of the neutrals and the importance of the
+    separatrix density are not fully understood
+
+This I cannot confirm. We have a pretty good picture of what is happening in terms of confinement. See Dunne et al PPCF 2017 and Wolfrum et al JNME 2017.
+If I am co-author, I cannot contradict myself ;-).
+
+3. All LFS Reflectometry data above 3e19 m-3 should be removed from the paper. Why do you not supplement your measurements with TS or Li-beam. In both shots there are fairly good data from both diagnostics for the LFS. This does not take away any importance from the HFS refl diagnostic.
+
+4. The asymmetry parameter is not defined in the paper. I think that it should be included, because you are using it in figure 2.
+
+5. The coloured regions in figure 2 should be reduced to fairly constant phases. I would put the red one from 2.3-2.8s, the green one from 3.2-3.5s and the purple one from 3.9-5.s.
+
+6. The LFS profiles of figure 3 could be supplement with TS and Li-beam data. Both of these diagnostics give values at R=2.13m of around 6e19m-3, which is different to your data. The shot number is missing in this figure.
+
+7. On page 8 you write:
+
+    However,
+    no marked changes occur when the HFSHD is rapidly enhanced at t  3 s suggesting that
+    connement properties are not directly associated with modications in the HFSHD, as
+    observed in L-mode[15].
+
+If you look at figure 1 in Wolfrum JNME2017 you can see that there is not much change in ped top pressure anymore if the profile is already shifted out. Also fig 9 in Dunne PPCF 2017 shows that above ne,sep > 3 e19m-3 no big changes are seen.
+So if H_98 is already low, an increase in ne,sep does not reduce it any further. For further reduction you need a change in ELM type, and thus transport across the sep.
+
+8. On page 9 you write:
+
+    The HFSHD is, therefore, an integral part
+    of high-power H-mode operation in a tungsten wall machine like AUG.
+
+It is very daring to conclude this from 2 analysed discharges. The HFSHD disappears when the second separatrix is moved close to the first one (close to DN). This is also not surprising, as there is then little heat flow into the HFS SOL.
+
+9. Figure 5: how do you determine the separatrix position? If you use TS, then it would be nice to also see the TS LFS profile data points next to your profiles.
+
+10. Are Stark broadening data available for #30733? If yes, can you include them in figure 4? I find it strange that the outer target is not hotter than the inner one, and when I look at the LP data, the outer is 15-20 eV. Where are the LP data from? Could you please check with Dominik Brida, whether you are using the correct data.
+Why is the HFSHD extending up to the midplane (all your HFS profiles are against the wall) and the inner divertor is not detached (Te > 5 eV)? Maybe the link between HFSHD and detachment is not so strong after all? This could give us some indication about the profile shape in the HFS SOL.
+
+11. On page 10 you write:
+
+    Confinement is observed to improve slightly when the
+    power is stepped up and to degrade when the fuel rate is increased, corresponding to
+    a different dependence on the plasma parameters than that observed for the HFSHD,
+    which increases with both input power and fuelling.
+
+
+and on page 13 you write:
+
+    However, the
+    effect of the heating power that does not support the suggested detrimental eect on
+    the HFSHD on connement in the discharges analysed here, indicating that more is
+    at play with respect to the eect of the HFSHD in connement. An increase in the
+    heating power leads to a strong increase in the HFSHD but also causes an enhancement
+    in connement (although modest).
+
+
+The pedestal confinement is improved with increasing core beta. Therefore, we see an improvement of confinement with higher heating power. The pedestal is then more stable and the peeling ballooning stability boundary is moved to higher values.
+If you look at figure 1a in Wolfrum JNME 2017 you can see not only the stability improvement with triangularity, but also the one with increasing beta.
+
+Also the purple points in your figure 8 can be explained with beta stabilisation.
+
+12. Figure 9: the values of ne in the confined region on the LFS are wrong. Please do not plot them. Use TS instead. This is the figure, where you could indicate that the divertor drifts could play a significant role for the build up of the HFSHD:
+At around 12 ms the temperature in the LFS divertor increases (this is when the high-f fluctuations set in and the pedestal pressure gradient is clamped). These high temperatures can be the cause for a large ExB drift across the PFR towards the inner target, increasing the density there and thus reducing the temperature and promoting detachment and the HFSHD.
+
+13. On page 17 you make a reference to a JET analysis. I am missing here the one to Florian's paper (Laggner PPCF 2018).
+
+14. in figure 10b) the ne values in the confined region are wrong. Use TS instead.
+
+15. Figure 10: Why do you not plot the whole ELM cycle? In figure 9 it is longer than 20 ms, and here you stop at 8 ms.
+
+16. On page 18 you write:
+
+    An
+    increase in the degree of detachment in the outer divertor is seen in a period where
+    the inner target in strongly detached and a HFSHD is present. The increased divertor
+    heat load due to ELMs leads to a temporary re-attachment of the outer divertor during
+    3􀀀4 ms after the ELM crash with the divertor plasma becoming detach again after this
+    period as indicated by the particle ux measured by the divertor probes.
+
+This part was not clear to me. I could not follow this discription in the plots.
+What can be seen though in figure 10 is that the HFSHD region has a different life time than the ne recovery on the LFS of the 'quiet' phase, where also the outer divertor seems detached, because there is just no heat flux through the pedestal.
+
+17. In figure 11 a) one can see increased particle fluxes between 5 and 7 ms after the ELM. Are these already the next ELMs? Or small ELMs in between? If yes, they should be filtered out. In 11b) the ne values in the confined region are wrong.
+
+18. On page 20 you write:
+
+    However, about 3􀀀4 ms after the ELM crash
+    an increase in the LFS SOL density is observed that is most probably related to changes
+    in the divertor conditions.
+
+Laggner has shown that at the same time the mid-f fluctuations set in. So you could write: ... that can relate to changes in the divertor conditions or to changes in transport in the pedestal. [reference Laggner].
+Personally, I am convinced, that the pedestal fluctuations are the cause, and the divertor the consequence, but there is a slight probability that the divertor changes in such a way that the stability of modes in the pedestal are changed. In my opinion, it is more likely that the pressure gradient is increased, which drives instabilities, which cause transport across the separatrix, which arrives at the divertor.
+
+19. On page 22 you write:
+
+    However, the detrimental eect is probably overcompensated by the
+    positive eect of increasing the heating power on energy connement.
+
+Yes! As discussed earlier, we know that the cause is beta-stabilisation of the pedestal stability.
+
+20. On page 22:
+
+    that also during the ELM cycle the divertor
+    conditions have a strong eect on the SOL density at the midplane
+
+I would write that they are correlated. From the data we cannot conclude what is the hen and what is the egg. The correlation would not be surprising, if the cause for the increased transport is the appearance of fluctuations in the pedestal.
+
+
+So, now that I have said all this, I would like to make the following suggestion:
+You could change the thrust of the paper and give it a red line by stating:
+1. reflectometry measures SOL ne profiles on HFS and LFS
+2. strong asymmetries are seen in H-mode: (i) correlated with the HFSHD and (ii) also changing during the ELM cycle
+3. the causes for the shape of the ne profile are different on LFS and HFS
+4. LFS is dominated by (i) fuelling and (ii) transport across the pedestal
+5. HFS is dominated by the HFS divertor condition (HFSHD extending up to the midplane).
+
