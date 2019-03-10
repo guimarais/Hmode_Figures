@@ -1,5 +1,4 @@
 import dd
-import kk_abock
 import numpy as np
 from ipfnpytools.trz_to_rhop import trz_to_rhop
 
@@ -7,11 +6,38 @@ class objview(object):
     def __init__(self, d):
         self.__dict__=d
 
-def get_vta(shotnr, tBegin=0.0, tEnd=10.0, magdiag='EQH'):
-    """Reads the VTA shotfile and maps data to rho pol"""
-    eq = kk_abock.kk()
-    eq.Open(shotnr, diag=magdiag)
+def get_vta(shotnr, tBegin=0.0, tEnd=10.0, magdiag='EQH', verbose=False):
+    """Reads the VTA(Vertical Thomson Array) shotfile and maps data to rho pol. The Edge and Core systems have different time bases so they are treated as independent systems.
     
+    Parameters
+    -----------
+    shotnr: int
+        Number of the shot
+    tBegin: float
+        Beginning of the time window for the data block
+    tEnd: float
+        End of the time window for the data block
+    magdiag: string ('EQH', 'EQI', 'FPP', 'IDE')
+        String for the magnetic equilibria to be used in mapping data to rho poloidal
+    verbose: bool
+        Flag to pass to trz_to_rhop to print the rho_pol progess
+    
+    Returns
+    -----------
+    vta: object
+        Object containing data from the core and edge VTA. Data is already sorted by ascending rho_pol values.
+        For each system, Core (c) and Edge (e), the vta object has the following elements:
+        time_#: Timebase of the e/c system.
+        rho_#:  Rho_pol of the e/c system.
+        ne_#:   Density of the e/c system.
+        Te_#:   Temperature of the e/c system.        
+        
+    Example
+    -----------
+    vta = get_vta(30733, tBegin=1.0, tEnd=1.5, magdiag='FPP')
+    """
+
+    #Reads data from the VTA shotfile
     vta = dd.shotfile('VTA', shotnr)
     ne_c = vta('Ne_c', tBegin=tBegin, tEnd=tEnd)
     te_c = vta('Te_c', tBegin=tBegin, tEnd=tEnd)
@@ -24,18 +50,20 @@ def get_vta(shotnr, tBegin=0.0, tEnd=10.0, magdiag='EQH'):
     z_e  = vta('Z_edge', tBegin=tBegin, tEnd=tEnd)
     vta.close()
     
-    zmap_e = np.tile(z_e.data, [len(ne_e.data),1])
+    #Adjusts R and Z dimensions to use afterwards in 'trz_to_rhop'
+    ## Edge
     rmap_e = np.tile(r_e.data, [len(z_e.data), 1]).T
-
+    zmap_e = np.tile(z_e.data, [len(ne_e.data),1])
+    
+    ## Core
     zmap_c = np.tile(z_c.data, [len(ne_c.data),1])
     rmap_c = np.tile(r_c.data, [len(z_c.data), 1]).T
 
-    rho_e = trz_to_rhop(ne_e.time, rmap_e, zmap_e, shot=shotnr, eq='FPP', squeeze=True)
-    rho_c = trz_to_rhop(ne_c.time, rmap_c, zmap_c, shot=shotnr, eq='FPP', squeeze=True)
+    #Converts R and Z to rho_pol
+    rho_e = trz_to_rhop(ne_e.time, rmap_e, zmap_e, shot=shotnr, eq='FPP', squeeze=True, verbose=verbose)
+    rho_c = trz_to_rhop(ne_c.time, rmap_c, zmap_c, shot=shotnr, eq='FPP', squeeze=True, verbose=verbose)
 
-    eq.Close()
-
-    #Organize by increasing rho
+    #Sort by ascending rho
     #Edge
     rr_e = np.zeros_like(rho_e)
     nn_e = np.zeros_like(rho_e)

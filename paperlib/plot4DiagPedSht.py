@@ -32,11 +32,9 @@ def plot4DiagPedSht(pedStruct,
 
     ax.set_xlim(left=2.1)
     ax.set_xlabel(r'$\mathrm{Major\,Radius\,[m]}$')
-    
-    
+        
     ax.set_ylim(0,6)
     
-
     ax.set_title('t=[%0.1f,%0.1f]s'%(pedStruct.t1,pedStruct.t2), loc='left', fontsize=9)
     #ax.text(2.105,5.6, '', color='k')
     
