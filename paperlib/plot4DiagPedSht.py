@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 def plot4DiagPedSht(pedStruct,
                    rho=True,
                    zorder=[1,2,3,4],
-                   labels=[r'$\mathrm{TS_{edge}}$', 'LIN', 'Ref. LFS', 'Ref. HFS']):
+                   labels=[r'$\mathrm{TS_{edge}}$', 'LIN', 'Ref. LFS', 'Ref. HFS'],
+                   pic_dim=(3,4)):
     """Takes a structure returned by pedshtf and plots it"""
     
     dotsize = 5
     dotsizeref = 4
 
-    fig, ax = plt.subplots(figsize=(6,3), ncols=1, nrows=1, dpi=200)
+    fig, ax = plt.subplots(figsize=pic_dim, ncols=1, nrows=1, dpi=200)
     
     #pedStruct = pedshtf(shotnr=shotnr, exper=exper, edition=edition, nr_diags=4, elm_exper=elm_exper)
     ax.scatter(pedStruct.rad[pedStruct.indi[0]:pedStruct.indf[0]],pedStruct.dens[pedStruct.indi[0]:pedStruct.indf[0]]*1e-19,
@@ -35,7 +36,8 @@ def plot4DiagPedSht(pedStruct,
         
     ax.set_ylim(0,6)
     
-    ax.set_title('t=[%0.1f,%0.1f]s'%(pedStruct.t1,pedStruct.t2), loc='left', fontsize=9)
+    ax.set_title('\#%d t=[%0.1f,%0.1f]s'%(pedStruct.shotnr,pedStruct.t1,pedStruct.t2), loc='left', fontsize=9)
+    ax.legend(frameon='False',handletextpad=-0.1,labelspacing=0.2,fontsize='small')
     #ax.text(2.105,5.6, '', color='k')
     
     plt.show()

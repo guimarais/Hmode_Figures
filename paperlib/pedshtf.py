@@ -50,7 +50,8 @@ def pedshtf(shotnr=30554, exper='guimas', edition=3, nr_diags=4, elm_exper='AUGD
     rad = radius['R']
     eq.Close()
     
-    return objview({'t1':np.array(t1.data),
+    return objview({'shotnr':shotnr,
+                    't1':np.array(t1.data),
                     't2':np.array(t2.data),
                     'rhos':np.array(rhos),
                     'rad':np.array(rad),
